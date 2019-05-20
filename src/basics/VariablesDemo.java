@@ -41,6 +41,14 @@ package basics;
 * Initialization 
 * data_type var_name = value;
 * 
+*  | var type | inside the class instance method | inside the class static method | outside the class  | 
+ * | instance | directly						 | by creating object			  | by creating object |
+ * | static   | directly						 | directly or by class name	  | by class name	   |
+ * 
+ * 
+ * Creating an object of the class
+ * 
+ * Class_name obj_name = new Class_name()
 */   
 
 
