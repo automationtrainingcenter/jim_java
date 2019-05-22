@@ -28,11 +28,11 @@ package basics;
 * 
 * 	WCData_type obj_name = new WCData_type(value);
 * 
-* 	Type Casting: converting one type of data to another type of data
+* 	Type Casting: converting one type of primitive data to another type of primitive data
 * 	up casting: lower memory type to higher memory type : widening : no data loss
 * 	down casting: higher memory data type to lower memory data type : narrowing : data loss is possible
 * 
-* 	Converting primitive data type to wrapper class: boxing
+* Converting primitive data type to wrapper class: boxing
 *  Converting wrapper to primitive : un-boxing
 * 
 * 
@@ -91,6 +91,62 @@ public class DataTypesDemo {
 		System.out.println("double value is "+d);
 		System.out.println("min value of double data type is "+Double.MIN_VALUE);
 		System.out.println("max value of double data type is "+Double.MAX_VALUE);
+		
+		//upcating -lower type to higher type
+		short shLow = 12345;
+		int iHigh;
+		iHigh = shLow;
+		
+		
+		//down casting - higher type to lower type
+		short shHigh = 456;
+		byte byLow;
+		//lower_type_var_name = ( lower_type ) higher_type_var_name;
+		byLow = (byte) shHigh;
+		System.out.println(byLow);
+		
+		float fHigh = 123.33f;
+		int iLow;
+		iLow = (int) fHigh;
+		System.out.println(iLow);
+		
+		//type conversion : primitive to wrapper
+		//primitive to wrapper conversion
+		int iPr = 512;
+//		Integer iWr = new Integer(iPr);
+		Integer iWr = Integer.valueOf(iPr);
+		
+		//wrapper to primitive 
+		Double dWr = new Double(21.3);
+//		double dPr = dWr;
+//		System.out.println(dPr);
+		double dPr = dWr.doubleValue();
+		
+		
+		// primitive to reference
+		int iP = 12345;
+		String iS = Integer.toString(iP);
+		System.out.println(iS+10);
+		
+		// reference to primitive
+		String str = "3.14";
+		double dP = Double.parseDouble(str);
+		System.out.println(dP+10);
+		
+//		System.out.println(Integer.parseInt(str));
+		
+		String s1 = "1234";
+		
+		System.out.println(Double.parseDouble(s1));
+		int i1 = Integer.parseInt(s1);
+		System.out.println(i1+10);
+		
+		short sh1 = Short.parseShort(s1);
+		System.out.println(sh1+10);
+		
+//		byte b1 = Byte.parseByte(s1);
+//		System.out.println(b1+10);
+	
 	}
 
 }
