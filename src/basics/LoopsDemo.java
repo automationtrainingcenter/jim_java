@@ -78,28 +78,57 @@ public class LoopsDemo {
 
 		// to iterate over a collection of data we can use for each loop
 		char[] vowels = { 'a', 'e', 'i', 'o', 'u' };
-		for(char vowel : vowels) {
+		for (char vowel : vowels) {
 			System.out.println(vowel);
 		}
-		
+
 		// verify a given number is prime or not
-		//read number from the console
+		// read number from the console
 		Scanner s = new Scanner(System.in);
 		System.out.println("enter a number");
 		int num = s.nextInt();
 		boolean status = true;
-		for(int l = 2; l <= num / 2; l++) {
-			if(num % l == 0) {
+		for (int l = 2; l <= num / 2; l++) {
+			if (num % l == 0) {
 				status = false;
-				break; // it terminate the loop 
+				break; // it terminate the loop
+			}
+		}
+
+		if (status) {
+			System.out.println("given number is prime");
+		} else {
+			System.out.println("given number is not prime");
+		}
+
+		// continue statement
+		for (int l = 0; l < 10; l++) {
+			if (l == 5) {
+				continue;
+//				break;
+			}
+			System.out.println(l);
+		}
+
+		// inner loops
+		for (int m = 2; m < 35; m++) {
+			boolean flag = true;
+			for (int n = 2; n <= m / 2; n++) {
+				if (m % n == 0) {
+					flag = false;
+					break;// inner loop
+				}
+			}
+			if(flag) {
+				System.out.print(m+"\t");
 			}
 		}
 		
-		if(status) {
-			System.out.println("given number is prime");
-		}else {
-			System.out.println("given number is not prime");
-		}
+		
+		
+		
+		
+
 	}
 
 }
