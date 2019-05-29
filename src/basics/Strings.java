@@ -2,7 +2,7 @@ package basics;
 
 /**
  * String is a collection of characters
- * Strings immutable in java that means we can't modify or change string data once 
+ * Strings are immutable in java that means we can't modify or change string data once 
  * stored in a memory location
  * Strings will store in separate memory location known as String constant pool
  * To create mutable strings we have to use StringBuilder or StringBuffer classes
