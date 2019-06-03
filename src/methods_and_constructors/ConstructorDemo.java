@@ -45,12 +45,8 @@ public class ConstructorDemo {
 	
 	//parameterized constructor
 	public ConstructorDemo(int id, String name, String course, String address, long phNum, double fee) {
-		this.id = id;
-		this.name = name;
-		this.course = course;
+		this(id, name, course, phNum, fee);
 		this.address = address;
-		this.phNum = phNum;
-		this.fee = fee;
 	}
 	
 	public ConstructorDemo(int id, String name, String course, long phNum, double fee) {
