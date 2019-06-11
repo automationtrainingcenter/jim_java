@@ -29,6 +29,7 @@ public class PolymorphsimDemo {
 		
 		RunTimePolyChild rcObj = new RunTimePolyChild();
 		rcObj.methodTwo(10, "40");
+		rcObj.methodThree();
 		
 		
 		RunTimePolyParent rpObj = new RunTimePolyParent();
@@ -36,6 +37,12 @@ public class PolymorphsimDemo {
 		
 		RunTimePolyParent pObj = new RunTimePolyChild();
 		pObj.methodTwo(10, "40");
+		// type cast parent class object reference to child class then call child class only method
+//		RunTimePolyChild c = (RunTimePolyChild) pObj;
+//		c.methodThree();
+		((RunTimePolyChild)pObj).methodThree();
+		
+		
 		
 	}
 

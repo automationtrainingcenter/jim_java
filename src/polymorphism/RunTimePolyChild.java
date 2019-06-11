@@ -12,7 +12,10 @@ public class RunTimePolyChild extends RunTimePolyParent {
 			//concatination of integer and string
 			System.out.println(a+b);
 		}
-		
+	}
+	
+	public void methodThree() {
+		System.out.println("child class method only");
 	}
 
 }
