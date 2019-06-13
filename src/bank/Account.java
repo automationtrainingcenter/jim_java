@@ -5,7 +5,7 @@ public class Account {
 	private int accNum = 100;
 	private String accHolderName;
 	private String address;
-	private double balance;
+	double balance;
 	private long phNum;
 	private static int i = 0;
 
@@ -55,6 +55,35 @@ public class Account {
 		System.out.println("********************************************");
 		return "account num : " + this.accNum + "\nname : " + this.accHolderName + "\naddress : " + this.address
 				+ "\nbalance : " + this.balance + "\nphone number : " + this.phNum;
+	}
+
+	public void deposite(double amount) {
+		if (amount >= 0) {
+			this.balance += amount;
+			System.out.println("deposite success");
+		} else {
+			System.out.println("invalid amount");
+		}
+	}
+
+	public void showBalance() {
+		System.out.println("balance in your account is " + this.balance);
+	}
+
+	public double withdraw(double amount) {
+		if (amount >= 0) {
+			if (this.balance >= amount) {
+				this.balance -= amount;
+				System.out.println("withdraw success");
+				return amount;
+			} else {
+				System.out.println("insufficient balance");
+				return 0;
+			}
+		} else {
+			System.out.println("invalid amount");
+			return 0;
+		}
 	}
 
 }
