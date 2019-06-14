@@ -19,6 +19,7 @@ package abstraction;
  * By default all the methods in Interface are public and abstract
  * By default all the variables of interface are public, static and final
  * An interface can extends multiple interfaces and it can't implement another interface
+ * A class can implement multiple interfaces and can only extends one normal class or one abstract class
  * 
  * From Java 8 onwards interface allows concrete methods
  * These concrete methods are either static methods or "default" methods
@@ -41,9 +42,27 @@ package abstraction;
 public class AbstractionDemo {
 	
 	public static void main(String[] args) {
+		//give object reference to the abstract class and object creation to the 
+		// child classes which provides definition to the abstract class abstract methods
 		AbstractClassDemo obj = new AbstractClassImpl();
 		obj.methodOne();
 		obj.methodTwo();
+		
+		
+		//give object reference to the interface and object creation to
+		// any implementation class
+		InterfaceDemo iObj = new InterfaceImpl();
+		iObj.methodOne();
+		iObj.methodTwo();
+		
+		InterfaceOne i1Obj = new ImplClass();
+		i1Obj.methodOne();
+		
+//		InterfaceTwo i2Obj = new ImplClass();
+//		InterfaceTwo i2Obj  = (ImplClass) i1Obj;
+		InterfaceTwo i2Obj  = (InterfaceTwo) i1Obj;
+		i2Obj.methodTwo();
+		
 	}
 
 }
