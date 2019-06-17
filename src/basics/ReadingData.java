@@ -39,7 +39,7 @@ public class ReadingData {
 		
 		//character
 		System.out.println("enter a character");
-		char ch = s.next().charAt(0);
+		char ch = s.next().toLowerCase().charAt(0);
 		System.out.println("charactar value is "+ch);
 	}
 
