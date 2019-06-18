@@ -45,43 +45,85 @@ import abstraction.Outer.Inner;
  */
 
 public class AbstractionDemo {
-	
+
 	public static void main(String[] args) {
-		//give object reference to the abstract class and object creation to the 
-		// child classes which provides definition to the abstract class abstract methods
+		// give object reference to the abstract class and object creation to the
+		// child classes which provides definition to the abstract class abstract
+		// methods
 		AbstractClassDemo obj = new AbstractClassImpl();
 		obj.methodOne();
 		obj.methodTwo();
-		
-		
-		//give object reference to the interface and object creation to
+
+		// give object reference to the interface and object creation to
 		// any implementation class
 		InterfaceDemo iObj = new InterfaceImpl();
 		iObj.methodOne();
 		iObj.methodTwo();
-		
+
 		InterfaceOne i1Obj = new ImplClass();
 		i1Obj.methodOne();
-		
+
 //		InterfaceTwo i2Obj = new ImplClass();
 //		InterfaceTwo i2Obj  = (ImplClass) i1Obj;
-		InterfaceTwo i2Obj  = (InterfaceTwo) i1Obj;
+		InterfaceTwo i2Obj = (InterfaceTwo) i1Obj;
 		i2Obj.methodTwo();
-		
-		//inner interfaces
+
+		// inner interfaces
 		Outer oiObj = new OuterInnerImple();
 		oiObj.methodOne();
 		((Inner) oiObj).methodTwo();
-		
+
 		Inner inObj = oiObj.method();
 		inObj.methodTwo();
-		
-		//object chaining
+
+		// object chaining
 		oiObj.method().methodTwo();
 		
-		Scanner s = new Scanner(System.in);
-		String str = s.next();
-		str.toLowerCase();
+		//Functional interface using normal java class
+		FuncInterfaceOne f1Obj = new FuncInteferfaceOneImple();
+		f1Obj.methodOne();
+		
+		
+		//Functional Interface using anonymous class
+		FuncInterfaceOne fanon = new FuncInterfaceOne() {
+			@Override
+			public void methodOne() {
+				System.out.println("method one definition using anonymous class");
+			}
+		};
+		
+		fanon.methodOne();
+		
+		// functional interface using lambda expression
+		FuncInterfaceOne f1lam = () -> System.out.println("method one definition using lambda expression");
+		f1lam.methodOne();
+		
+		
+		FuncInterfaceTwo f2lam = (int a, String b) -> System.out.println(a+b);
+		f2lam.methodTwo(10, "20");
+		
+		FuncInterfaceTwo f2lam1 = (int a, String b) -> {
+			int ib = Integer.parseInt(b);
+			System.out.println(a+ib);
+		};
+		
+		f2lam1.methodTwo(10,  "20");
+		
+		FuncInterfaceThree f3lam = (String str) -> {
+			if(str.matches("\\d*")) {
+				System.out.println("integer data");
+				return Integer.parseInt(str);
+			}else {
+				return str.length();
+			}
+		};
+		
+		
+		System.out.println(f3lam.methodThree("123453"));
+		System.out.println(f3lam.methodThree("sunshine"));
+		System.out.println(f3lam.methodThree("12.222"));
+		
+		
 		
 	}
 
