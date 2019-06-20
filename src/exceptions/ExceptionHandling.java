@@ -21,6 +21,7 @@ import java.io.FileNotFoundException;
  * finally block will execute the statement irrespective of exception
  * 
  * throws keyword will throw the exception to the corresponding method declaration
+ *
  */
 
 public class ExceptionHandling {
