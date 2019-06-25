@@ -21,7 +21,7 @@ public class DataBaseDemo {
 		 * Load the driver class related to the DB technology dynamically using
 		 * forName() method of Class class
 		 */
-		List<String> citisOfGBR = new ArrayList<>();
+//		List<String> citisOfGBR = new ArrayList<>();
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			/*
@@ -40,18 +40,23 @@ public class DataBaseDemo {
 			 * Execute SQL queries using executeQuery() method of Statement class and store
 			 * the results in ResultSet class object
 			 */
-			ResultSet rs = statement.executeQuery("select Name from city where CountryCode = 'GBR'");
+			ResultSet rs = statement.executeQuery("select * from city where CountryCode = 'GBR'");
 
 			/* Iterate over the results using next() method of ResultSet class */
 			while (rs.next()) {
 				String name = rs.getString("Name");
-				citisOfGBR.add(name);
+				int id = rs.getInt("ID");
+				String countryCode = rs.getString("CountryCode");
+				String district = rs.getString("District");
+				long population = rs.getLong("population");
+				System.out.println(id+"\t"+name+"\t"+countryCode+"\t"+district+"\t"+population);
+//				citisOfGBR.add(name);
 			}
 
 			/* Close the data base connection using close() method of Connection class */
 			con.close();
 			
-			System.out.println(citisOfGBR);
+//			System.out.println(citisOfGBR);
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
